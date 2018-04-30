@@ -12,13 +12,6 @@ import java.util.Scanner;
 public class NimPlayer {
     private static Scanner keyboard = new Scanner(System.in);
 
-    // initialize player
-    // public String playerName(String playerNumber)
-    // {
-    //     System.out.println("Please enter Player "+playerNumber+"'s name:");
-    //     return keyboard.nextLine();
-    // }
-
     // remove stone method
     public int removeStone(String currentPlayer){
         Nimsys nameList  = new Nimsys();
@@ -27,18 +20,6 @@ public class NimPlayer {
         System.out.println();
         return keyboard.nextInt();
     }
-
-    // // initialize stone upper bound
-    // public int stoneUpperBound(){
-    //     System.out.println("Please enter upper bound of stone removal:");
-    //     return keyboard.nextInt();
-    // }
-
-    // // initialize stone amount
-    // public int currentStoneAmount(){
-    //     System.out.println("Please enter initial number of stones:");
-    //     return keyboard.nextInt();
-    // }
 
     // remove player prompt 
     public String removePromptInput(){

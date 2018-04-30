@@ -130,7 +130,6 @@ public class NimGame {
 		}
 	}
 
-
 	// switch player action
     private static void switchPlayer() {
 
