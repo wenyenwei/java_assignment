@@ -5,7 +5,7 @@
    Lecturer: Prof. Rui Zhang
    Semester 1, 2018
    Copyright The University of Melbourne 2018
-   Project A
+   Project B
    Wenyen Wei, username: wenyenw, studentID: 949624
 */
 import java.util.Scanner;
@@ -21,7 +21,10 @@ public class NimPlayer {
 
     // remove stone method
     public int removeStone(String currentPlayer){
-        System.out.printf("%s's turn - remove how many?%n", currentPlayer);
+        Nimsys nameList  = new Nimsys();
+        String playerName = nameList.playerList(currentPlayer).split(",")[1];
+        System.out.printf("%s's turn - remove how many?%n", playerName);
+        System.out.println();
         return keyboard.nextInt();
     }
 

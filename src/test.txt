@@ -1,0 +1,25 @@
+addplayer a1,aaa,oo
+addplayer b2,bbb,aa
+addplayer c3,ccc,bb
+addplayer d4,ccc,bb
+addplayer d5,ccc,bb
+addplayer d6,ccc,bb
+addplayer d7,ccc,bb
+addplayer d8,ccc,bb
+addplayer d9,ccc,bb
+addplayer d10,ccc,bb
+addplayer d11,ccc,bb
+startgame 10,10,a1,b2
+9
+1
+y
+10
+y
+6
+2
+1
+1
+n
+displayplayer
+rankings asc
+exit
