@@ -15,8 +15,10 @@ public class NimGame {
 	private static String currentPlayer, player1, player2, player1Name, player2Name;
 	private static String[] winner = new String[40];
 
+	// new game start
 	public static void game(String initStone, String maxStone, String playerOne, String playerTwo) {
 
+		// players setting
 		NimPlayer player = new NimPlayer();
 
 		player1 = playerOne;
@@ -25,9 +27,9 @@ public class NimGame {
 		Nimsys nameList = new Nimsys();
 		player1Name = nameList.playerList(player1).split(",")[1]+" "+nameList.playerList(player1).split(",")[2];
 		player2Name = nameList.playerList(player2).split(",")[1]+" "+nameList.playerList(player2).split(",")[2];
-
-		initStoneAmount = Integer.parseInt(initStone);
+		
 		// init vars
+		initStoneAmount = Integer.parseInt(initStone);
 		for (int i = 0; i < winner.length; i++){
 			winner[i] = null;
 		}
@@ -150,16 +152,4 @@ public class NimGame {
             checkWin();
         }
     }
-
-	// ask if play again
-	// private static void playAgain(){
-
-	// 	NimPlayer playerReply = new NimPlayer();
-	// 	String reply = playerReply.reply();
-
-	// 	if (reply.equalsIgnoreCase("Y")) {
-	// 		initializeGameSetting(initStoneAmount, stoneUpperBound);
-	// 	}
-
-	// }
 }

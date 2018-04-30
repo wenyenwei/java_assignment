@@ -24,7 +24,7 @@ public class Nimsys {
 	private static String variables;
 	private static String username;
 
-
+	// system start
 	public static void main (String[] args) {
 
 		System.out.println("Welcome to Nim");
@@ -43,12 +43,13 @@ public class Nimsys {
 		NimPlayer prompt = new NimPlayer();
 		String action = prompt.promptInput();
 
+		// check action
 		checkAction(action);
-
 	}
 
 	// proceed input action
 	private static void checkAction(String action) {
+		// get action
 		if (action.length() > 0){
 			Actions function = null;
 			String[] action_split = action.split(" ");
@@ -65,6 +66,7 @@ public class Nimsys {
 				}else{
 					variables = action.split(" ")[1];
 				}
+				// get username and index
 				username = variables.split(",")[0];
 				indexOfUsername = getUserIndex(username);		
 			}
@@ -112,7 +114,8 @@ public class Nimsys {
 					System.out.println();
 					System.exit(0);
 					break;
-			}			
+			}
+		// Scanner no waiting problem, prevent blank input				
 		}else{
 			prompt();
 		}
@@ -232,6 +235,7 @@ public class Nimsys {
 		if (variables == null){
 			// getting sub list
 			String[] varsList = new String[20];
+			// sort player ajphabetically
 			varsList = sort("alphabet", playersList);
 			for (int i = 0; i < varsList.length; i++){
 				if (varsList[i] != null){
@@ -263,7 +267,7 @@ public class Nimsys {
 		else if(variables.equalsIgnoreCase("asc")) {
 			varList = sort("asc", playersList);
 		}
-
+		// processing user game data
 		for (int i = 0; i < 10; i++){
 			if (varList[i] != null){
 				String[] variable = varList[i].split(",");
@@ -284,6 +288,7 @@ public class Nimsys {
 	// stat formatter
 	private static String statFormatter(int gameAmount){
 		String gameAmountString;
+		// if number less than 10 then add 0 in front
 		if (gameAmount < 10){
 			gameAmountString = "0"+Integer.toString(gameAmount);
 		}else{
@@ -348,6 +353,7 @@ public class Nimsys {
 		        }
 		    }			
 		}
+
 		// if desc
 		else if (order.equalsIgnoreCase("desc")){
 			// selection sort
@@ -406,37 +412,20 @@ public class Nimsys {
 
 	// add player record function
 	private static void addPlayerRecord(String usernameInput, String winner){
-		
-		// winner
+		// get index and get stats
+		int index = getUserIndex(usernameInput);
+		String[] playerVariables = playersList[index + 1].split(",");
+		playerVariables[3] = Integer.toString(Integer.parseInt(playerVariables[3].split(" ")[0]) + 1) + " games";
+		// if winner then update wins
 		if (usernameInput.equalsIgnoreCase(winner)){
-	
-			int index1 = getUserIndex(usernameInput);
-			String[] playerVariables = playersList[index1 + 1].split(",");
-			playerVariables[3] = Integer.toString(Integer.parseInt(playerVariables[3].split(" ")[0]) + 1) + " games";
 			playerVariables[4] = Integer.toString(Integer.parseInt(playerVariables[4].split(" ")[0]) + 1) + " wins";
-			String updatedPlayer = "";
-
-			for (int i = 0; i < playerVariables.length - 1; i++){
-				updatedPlayer = updatedPlayer + playerVariables[i] + ",";
-			}
-			playersList[index1 + 1] = updatedPlayer + playerVariables[4];			
-
 		}
-		// loser
-		else{
-
-			int index2 = getUserIndex(usernameInput);
-			String[] playerVariables = playersList[index2 + 1].split(",");
-			playerVariables[3] = Integer.toString(Integer.parseInt(playerVariables[3].split(" ")[0]) + 1) + " games";
-			String updatedPlayer = "";
-
-			for (int i = 0; i < playerVariables.length - 1; i++){
-				updatedPlayer = updatedPlayer + playerVariables[i] + ",";;
-			}
-			playersList[index2 + 1] = updatedPlayer + playerVariables[4];	
-		
+		String updatedPlayer = "";
+		// re-assemble stat data
+		for (int i = 0; i < playerVariables.length - 1; i++){
+			updatedPlayer = updatedPlayer + playerVariables[i] + ",";
 		}
-
+		playersList[index + 1] = updatedPlayer + playerVariables[4];
 	}
 
 }
