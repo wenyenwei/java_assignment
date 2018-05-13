@@ -135,20 +135,16 @@ public class NimGame {
 
 	    NimPlayer checkRemoveAmount = new NimPlayer();
 	    int removeStoneAmount = checkRemoveAmount.removeStone(currentPlayer);
-
-	    // if entry over upperbound
-        if (removeStoneAmount > stoneUpperBound) {
-            System.out.printf("Amount upper bound is %d, please try again.%n", stoneUpperBound);
+	    // check move validity
+	    try {
+	    	boolean valid = (removeStoneAmount > stoneUpperBound || removeStoneAmount < 1);
+	    	if (valid){
+	            stoneReducer(removeStoneAmount);
+	            checkWin();	    		
+	    	}
+	    } catch(Exception e) {
+	    	System.out.printf("Invalid move. You must remove between 1 and %d stones.%n", stoneUpperBound);
             switchPlayer();
-        }
-        // if entry less than 1 
-        else if (removeStoneAmount < 1) {
-            System.out.printf("Amount has to be greater than zero, please try again.%n");
-            switchPlayer();        	
-        } 
-        else {
-            stoneReducer(removeStoneAmount);
-            checkWin();
-        }
+	    }
     }
 }

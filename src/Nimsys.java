@@ -47,19 +47,68 @@ public class Nimsys {
 		checkAction(action);
 	}
 
+	// check action validity
+	private static boolean checkActionValidity(String action) {
+		try {
+			boolean valid = action.equalsIgnoreCase("addPlayer") || action.equalsIgnoreCase("editplayer") || action.equalsIgnoreCase("removeplayer") || action.equalsIgnoreCase("displayplayer") || action.equalsIgnoreCase("resetstats") || action.equalsIgnoreCase("rankings") || action.equalsIgnoreCase("startgame") || action.equalsIgnoreCase("exit");
+			if (valid) {
+				return true
+			}
+		} catch(Exception e) {
+			System.out.printf("‘%s’ is not a valid command.%n", action);
+			return false
+		}
+	}
+
+	// check number of argument validity
+	private static boolean checkNumberOfArgumentsValidity(String[] action, int correctNum) {
+		try {
+			boolean valid = action.length == correctNum;
+			if (valid) {
+				return true
+			}
+		} catch(Exception e) {
+			System.out.println("Incorrect number of arguments supplied to command.");
+			prompt();
+			return false
+		}
+	}
+
+	// return number of required args according to action
+	private static int validNumberOfArgs(String action){
+		switch (action){
+			case 'addplayer':
+				return 3;
+				break;
+			case 'removeplayer':
+				return 1;
+				break;
+			case 'editplayer':
+				return 3;
+				break;
+			case 'resetstats':
+				return 1
+				break;
+			case 'displayplayer':
+				return 1;
+				break;
+		}
+	}
+
 	// proceed input action
 	private static void checkAction(String action) {
-		// get action
-		if (action.length() > 0){
+		// get action and check action validity
+		String[] action_split = action.split(" ");
+		if (action.length() > 0 && checkActionValidity(action_split[0].toLowerCase())){
 			Actions function = null;
-			String[] action_split = action.split(" ");
 			function = Actions.valueOf(action_split[0].toLowerCase());
+
 			// set vars back to null
 			variables = null; 
 			username = null;
 
-			// get username index
-			if (action_split.length > 1){
+			// if has args, check number of args validity and get username index
+			if (action_split.length > 1 && checkNumberOfArgumentsValidity(action_split[1].split(","), validNumberOfArgs(action_split[0]))){
 				// swap lname, fname for addplayer and editplayer
 				if (action_split[0].equalsIgnoreCase("addplayer") || action_split[0].equalsIgnoreCase("editplayer")){
 					variables = action_split[1].split(",")[0]+"," + action_split[1].split(",")[2] +","+ action_split[1].split(",")[1]; 
@@ -115,6 +164,7 @@ public class Nimsys {
 					System.exit(0);
 					break;
 			}
+		
 		// Scanner no waiting problem, prevent blank input				
 		}else{
 			prompt();
@@ -260,13 +310,10 @@ public class Nimsys {
 		String[] varList = new String[20]; 
 
 		// list in desc order
-		if(variables == null || variables.equalsIgnoreCase("desc")) {
+		if(variables == null || variables.equalsIgnoreCase("desc") || variables.equalsIgnoreCase("asc")) {
 			varList = sort("desc", playersList);
 		}
-		// list in asc order 
-		else if(variables.equalsIgnoreCase("asc")) {
-			varList = sort("asc", playersList);
-		}
+
 		// processing user game data
 		for (int i = 0; i < 10; i++){
 			if (varList[i] != null){
