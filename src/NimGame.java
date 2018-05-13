@@ -130,6 +130,20 @@ public class NimGame {
 		}
 	}
 
+	// move validity exception http://xanxusvervr.blogspot.com.au/2017/12/java.html
+	private class myExceptions extends Exception{
+	    public moveException(int removeStoneAmount){
+	        super("Invalid move. You must remove between 1 and "+removeStoneAmount+" stones")
+	    }
+	}
+	
+	// move validity
+	private static void checkStoneNumValidity(int removeStoneAmount) throws myExceptions{
+	    if (removeStoneAmount > stoneUpperBound || removeStoneAmount < 1){
+	        throw new moveException(action);
+	    }
+	}
+
 	// switch player action
     private static void switchPlayer() {
 
@@ -137,13 +151,9 @@ public class NimGame {
 	    int removeStoneAmount = checkRemoveAmount.removeStone(currentPlayer);
 	    // check move validity
 	    try {
-	    	boolean valid = (removeStoneAmount > stoneUpperBound || removeStoneAmount < 1);
-	    	if (valid){
-	            stoneReducer(removeStoneAmount);
-	            checkWin();	    		
-	    	}
+	    	checkStoneNumValidity(removeStoneAmount)
 	    } catch(Exception e) {
-	    	System.out.printf("Invalid move. You must remove between 1 and %d stones.%n", stoneUpperBound);
+	    	System.out.println(e.getMessage());
             switchPlayer();
 	    }
     }
