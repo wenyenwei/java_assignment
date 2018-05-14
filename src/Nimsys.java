@@ -48,29 +48,31 @@ public class Nimsys {
 	}
 
 	// action validity exception http://xanxusvervr.blogspot.com.au/2017/12/java.html
-	private class myExceptions extends Exception{
-	    public ActionException(String action){
-	        super("‘"+action+"’ is not a valid command.")
-	    }
-		public NumOfArgsException(String[] args){
-	        super("Incorrect number of arguments supplied to command.")
-	    }
-	    public prompt(){
-	        prompt();
+	private static class ActionException extends Exception{
+	    public void ActionException(String action){
+	        super("‘"+action+"’ is not a valid command.");
 	    }
 	}
 	
 	// action validity
-	private static void checkActionValidity(String action) throws myExceptions{
-	    if !(action.equalsIgnoreCase("addPlayer") || action.equalsIgnoreCase("editplayer") || action.equalsIgnoreCase("removeplayer") || action.equalsIgnoreCase("displayplayer") || action.equalsIgnoreCase("resetstats") || action.equalsIgnoreCase("rankings") || action.equalsIgnoreCase("startgame") || action.equalsIgnoreCase("exit")){
+	private static void checkActionValidity(String action) throws ActionException{
+	    if (!action.equalsIgnoreCase("addPlayer") || !action.equalsIgnoreCase("editplayer") || !action.equalsIgnoreCase("removeplayer") || !action.equalsIgnoreCase("displayplayer") || !action.equalsIgnoreCase("resetstats") || !action.equalsIgnoreCase("rankings") || !action.equalsIgnoreCase("startgame") || !action.equalsIgnoreCase("exit")){
 	        throw new ActionException(action);
+	    }
+	}
+
+	// action validity exception http://xanxusvervr.blogspot.com.au/2017/12/java.html
+	private static class NumOfArgsException extends Exception{
+		public void NumOfArgsException(String[] args){
+	        super("Incorrect number of arguments supplied to command.");
 	    }
 	}
 	
 	// num of args validity
-	private static void checkNumberOfArgumentsValidity(String[] action, int correctNum) throws myExceptions{
-	    if !(action.length == correctNum){
-	        throw new NumOfArgsException(String[] action, int correctNum);
+	private static void checkNumberOfArgumentsValidity(String[] action, int correctNum) throws NumOfArgsException{
+	    if (action.length != correctNum){
+	        throw new NumOfArgsException(action, correctNum);
+	    }
 	}
 
 
@@ -78,19 +80,19 @@ public class Nimsys {
 	// return number of required args according to action
 	private static int validNumberOfArgs(String action){
 		switch (action){
-			case 'addplayer':
+			case "addplayer":
 				return 3;
 				break;
-			case 'removeplayer':
+			case "removeplayer":
 				return 1;
 				break;
-			case 'editplayer':
+			case "editplayer":
 				return 3;
 				break;
-			case 'resetstats':
-				return 1
+			case "resetstats":
+				return 1;
 				break;
-			case 'displayplayer':
+			case "displayplayer":
 				return 1;
 				break;
 		}
@@ -106,8 +108,8 @@ public class Nimsys {
 		        checkActionValidity(action_split[0].toLowerCase());
 		    }
 		    catch(ActionException e){
-		        system.out.println(e.getMessage());
-		        e.prompt();
+		        System.out.println(e.getMessage());
+		        prompt();
 		    }
 			Actions function = null;
 			function = Actions.valueOf(action_split[0].toLowerCase());
@@ -123,8 +125,8 @@ public class Nimsys {
 			        checkNumberOfArgumentsValidity(action_split[1].split(","), validNumberOfArgs(action_split[0]));
 			    }
 			    catch(NumOfArgsException e){
-			        system.out.println(e.getMessage());
-			        e.prompt();
+			        System.out.println(e.getMessage());
+			        prompt();
 			    }				
 				// swap lname, fname for addplayer and editplayer
 				if (action_split[0].equalsIgnoreCase("addplayer") || action_split[0].equalsIgnoreCase("editplayer")){
