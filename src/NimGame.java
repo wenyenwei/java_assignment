@@ -132,15 +132,16 @@ public class NimGame {
 
 	// move validity exception http://xanxusvervr.blogspot.com.au/2017/12/java.html
 	private static class moveException extends Exception{
-	    public void moveException(int removeStoneAmount){
-	        super("Invalid move. You must remove between 1 and "+removeStoneAmount+" stones");
+	    public moveException(String msg){
+	        super(msg);
 	    }
 	}
 	
 	// move validity
 	private static void checkStoneNumValidity(int removeStoneAmount) throws moveException{
 	    if (removeStoneAmount > stoneUpperBound || removeStoneAmount < 1){
-	        throw new moveException(removeStoneAmount);
+	    	String msg = "Invalid move. You must remove between 1 and "+removeStoneAmount+" stones";
+	        throw new moveException(msg);
 	    }
 	}
 
