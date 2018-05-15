@@ -63,7 +63,7 @@ public class Nimsys {
 
 	// action validity exception http://xanxusvervr.blogspot.com.au/2017/12/java.html
 	private static class NumOfArgsException extends Exception{
-		public void NumOfArgsException(String[] args){
+		public void NumOfArgsException(){
 	        super("Incorrect number of arguments supplied to command.");
 	    }
 	}
@@ -71,7 +71,7 @@ public class Nimsys {
 	// num of args validity
 	private static void checkNumberOfArgumentsValidity(String[] action, int correctNum) throws NumOfArgsException{
 	    if (action.length != correctNum){
-	        throw new NumOfArgsException(action, correctNum);
+	        throw new NumOfArgsException();
 	    }
 	}
 
