@@ -9,6 +9,12 @@
    Wenyen Wei, username: wenyenw, studentID: 949624
 */
 import java.util.Arrays;
+import java.io.PrintWriter;
+import java.io.FileOutputStream;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.util.Scanner;
+
 
 public class Nimsys {
 
@@ -26,10 +32,22 @@ public class Nimsys {
 
 	// system start
 	public static void main (String[] args) {
+		// read file
+		Scanner inputStream = null;
+		try{
+			inputStream = new Scanner(new FileInputStream("players.txt"));
+		}
+		catch(FileNotFoundException e){
+			System.out.println(e.getMessage());
+			exitGame();
+		}
+		String playerListString = inputStream.next();
+		// store file to player list
+		processingData(playerListString);
 
+		// start Nimsys
 		System.out.println("Welcome to Nim");
 		prompt();
-
 	}
 
 	// return player data according to username
@@ -37,6 +55,11 @@ public class Nimsys {
 		int index = getUserIndex(username);
 		return playersList[index+1];
 	}	
+
+	// processing data from file
+	private static void processingData(String list) {
+		System.out.println(list);
+	}
 
 	// command prompt
 	private static void prompt() {
@@ -104,6 +127,9 @@ public class Nimsys {
 				break;
 			case "displayplayer":
 				numOfArgs = 1;
+				break;
+			case "startgame":
+				numOfArgs = 4;
 				break;
 		}
 		return numOfArgs;
@@ -199,8 +225,7 @@ public class Nimsys {
 
 				// exit function
 				case exit:
-					System.out.println();
-					System.exit(0);
+					exitGame();
 					break;
 			}
 		
@@ -209,6 +234,22 @@ public class Nimsys {
 			prompt();
 		}
 	}
+
+	// exit function
+	private static void exitGame(){
+		PrintWriter outputStreamName = null;
+		try{
+			outputStreamName = new PrintWriter(new FileOutputStream("players.txt", true));
+		}
+		catch(FileNotFoundException e){
+			System.out.println(e.getMessage());
+		}
+		outputStreamName.println(Arrays.toString(playersList));
+		outputStreamName.close();
+		System.out.println();
+		System.exit(0);
+	}
+
 
 	// get user index
 	private static int getUserIndex(String usernameInput){

@@ -153,7 +153,7 @@ public class NimGame {
 	    // check move validity
 	    try {
 	    	checkStoneNumValidity(removeStoneAmount);
-	    } catch(Exception e) {
+	    } catch(moveException e) {
 	    	System.out.println(e.getMessage());
             switchPlayer();
 	    }
