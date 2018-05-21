@@ -1,0 +1,59 @@
+addplayer lskywalker,Skywalker,Luke
+addplayer lskywalker,Skywalker,Luke
+removeplayer lskyrunner
+removeplayer lskywalker
+removeplayer
+y
+editplayer lskyrunner,Skywalker,Laurence
+addplayer lskywalker,Skywalker,Luke
+addplayer dvader,Vader,Darth
+addplayer hsolo,Solo,Han
+editplayer lskywalker,Skywalker,Laurence
+editplayer lskywalker,Skywalker,Luke
+resetstats lskyrunner
+resetstats lskywalker
+resetstats
+y
+displayplayer lskyrunner
+startgame 5,2,lskywalker,dvader
+2
+1
+1
+1
+startgame 5,2,lskywalker,dvader
+2
+1
+1
+1
+startgame 5,2,lskywalker,dvader
+2
+1
+1
+1
+startgame 8,5,hsolo,dvader
+5
+3
+startgame 8,5,hsolo,dvader
+5
+3
+startgame 8,5,hsolo,dvader
+5
+3
+startgame 10,6,dvader,hsolo
+6
+4
+displayplayer lskywalker
+displayplayer
+rankings
+rankings desc
+rankings asc
+startgame 10,3,lskyrunner,hsolo
+startgame 10,3,lskywalker,hsolo
+3
+4
+3
+3
+0
+1
+rankings
+exit

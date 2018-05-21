@@ -1,0 +1,11 @@
+addplayer george,Washington,George
+addplayer jadams,Adams,John
+startgame 10,3,georg,jadams
+startgame 10,3,george,jadams
+3
+4
+3
+3
+0
+1
+exit

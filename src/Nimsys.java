@@ -41,7 +41,7 @@ public class Nimsys {
 			System.out.println(e.getMessage());
 			exitGame();
 		}
-		String playerListString = inputStream.next();
+		String playerListString = inputStream.nextLine();
 		// store file to player list
 		processingData(playerListString);
 
@@ -58,7 +58,15 @@ public class Nimsys {
 
 	// processing data from file
 	private static void processingData(String list) {
-		System.out.println(list);
+		playersList = list.substring(1,list.length()-1).split(", ");
+		int countPlayerAmount = 0;
+		for (int i = 0; i < 40; i++){
+			if (playersList[i] != null && !playersList[i].equalsIgnoreCase("null")){
+				countPlayerAmount++;
+			}
+		}
+
+		playerAmount = countPlayerAmount;
 	}
 
 	// command prompt
@@ -239,7 +247,7 @@ public class Nimsys {
 	private static void exitGame(){
 		PrintWriter outputStreamName = null;
 		try{
-			outputStreamName = new PrintWriter(new FileOutputStream("players.txt", true));
+			outputStreamName = new PrintWriter(new FileOutputStream("players.txt", false));
 		}
 		catch(FileNotFoundException e){
 			System.out.println(e.getMessage());
@@ -368,7 +376,7 @@ public class Nimsys {
 			// sort player ajphabetically
 			varsList = sort("alphabet", playersList);
 			for (int i = 0; i < varsList.length; i++){
-				if (varsList[i] != null){
+				if (varsList[i] != null && !varsList[i].equalsIgnoreCase("null")){
 					System.out.println(varsList[i]);
 				}
 			}
