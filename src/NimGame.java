@@ -157,5 +157,7 @@ public class NimGame {
 	    	System.out.println(e.getMessage());
             switchPlayer();
 	    }
+	    stoneReducer(removeStoneAmount);
+        checkWin();
     }
 }
