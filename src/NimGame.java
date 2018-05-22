@@ -5,7 +5,7 @@
    Lecturer: Prof. Rui Zhang
    Semester 1, 2018
    Copyright The University of Melbourne 2018
-   Project B
+   Project C
    Wenyen Wei, username: wenyenw, studentID: 949624
 */
 public class NimGame {
@@ -14,6 +14,7 @@ public class NimGame {
 	private static int currentStoneAmount, removeStoneAmount, stoneUpperBound, initStoneAmount, winnerCount;
 	private static String currentPlayer, player1, player2, player1Name, player2Name;
 	private static String[] winner = new String[40];
+	private static boolean player1AI, player2AI;
 
 	// new game start
 	public static void game(String initStone, String maxStone, String playerOne, String playerTwo) {
@@ -28,6 +29,20 @@ public class NimGame {
 		player1Name = nameList.playerList(player1).split(",")[1]+" "+nameList.playerList(player1).split(",")[2];
 		player2Name = nameList.playerList(player2).split(",")[1]+" "+nameList.playerList(player2).split(",")[2];
 		
+
+		// indicate if players are ai players
+		if (player1.substring(0,3) == "ai"){
+			player1AI = true;
+		}else{
+			player1AI = false;
+		}
+
+		if (player2.substring(0,3) == "ai"){
+			player2AI = true;
+		}else{
+			player2AI = false;
+		}
+
 		// init vars
 		initStoneAmount = Integer.parseInt(initStone);
 		for (int i = 0; i < winner.length; i++){
@@ -145,8 +160,27 @@ public class NimGame {
 	    }
 	}
 
+	// check if player is ai
+	private static boolean checkAI(String currentPlayer) {
+		boolean indicator = false;
+		if (currentPlayer == player1){
+			if (player1AI){
+				indicator = true;
+			}
+		}else if (currentPlayer == player2) {
+			if (player2AI){
+				indicator = true
+			}
+		}
+		return indicator;
+	}	
+
 	// switch player action
     private static void switchPlayer() {
+    	// if currentPlayer is AIPlayer, call NimAIPlayer
+    	if (checkAI(currentPlayer)){
+    		// call NimAIPlayer
+    	}
 
 	    NimPlayer checkRemoveAmount = new NimPlayer();
 	    int removeStoneAmount = checkRemoveAmount.removeStone(currentPlayer);

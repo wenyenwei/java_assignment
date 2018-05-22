@@ -5,7 +5,7 @@
    Lecturer: Prof. Rui Zhang
    Semester 1, 2018
    Copyright The University of Melbourne 2018
-   Project B
+   Project C
    Wenyen Wei, username: wenyenw, studentID: 949624
 */
 import java.util.Arrays;
@@ -124,6 +124,9 @@ public class Nimsys {
 			case "addplayer":
 				numOfArgs = 3;
 				break;
+			case "addaiplayer":
+				numOfArgs = 3;
+				break;
 			case "removeplayer":
 				numOfArgs = 1;
 				break;
@@ -198,6 +201,11 @@ public class Nimsys {
 				// addplayer 
 				case addplayer:
 					addPlayer();
+					break;
+
+				// addaiplayer
+				case addaiplayer:
+					addAiPlayer();
 					break;
 
 				// removeplayer function
@@ -281,6 +289,24 @@ public class Nimsys {
 			userExist =  true;
 		}
 		return userExist;
+	}
+
+	// add ai player function
+	private static void addAiPlayer(){
+		// mark in username as ai
+		username = "ai_" + username;
+		// player not exist
+		if (indexOfUsername == -1){
+			playersList[playerAmount] = username;
+			playersList[playerAmount + 1] = variables + ",0 games,0 wins";
+			playerAmount = playerAmount + 2;
+			prompt();
+		}
+		// player exist
+		else if (indexOfUsername >= 0){
+			System.out.println("The player already exists.");
+			prompt();
+		}
 	}
 
 	// add player function
