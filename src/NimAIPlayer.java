@@ -12,13 +12,9 @@ public class NimAIPlayer implements Testable extends NimGame{
 	// you may further extend a class or implement an interface
 	// to accomplish the tasks.	
 	public void NimAIPlayer() {
-				
+		enterStoneAmount();		
 	}
 
-	public void addPlayer(){
-
-	}
-	
 	public String advancedMove(boolean[] available, String lastMove) {
 		// the implementation of the victory
 		// guaranteed strategy designed by you

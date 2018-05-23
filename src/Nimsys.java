@@ -24,11 +24,12 @@ public class Nimsys {
 	private static String[] playersList = new String[40];
 	private static int playerAmount = 0;
 	enum Actions {
-		addplayer, removeplayer, editplayer, resetstats, displayplayer, rankings, startgame, exit
+		addplayer, addaiplayer, removeplayer, editplayer, resetstats, displayplayer, rankings, startgame, exit
 	};
 	private static int indexOfUsername;
 	private static String variables;
 	private static String username;
+	private static boolean isAIPlayer = false;
 
 	// system start
 	public static void main (String[] args) {
@@ -274,6 +275,11 @@ public class Nimsys {
 			if(playersList[i] != null){
 				if (playersList[i].equalsIgnoreCase(usernameInput)){
 					index = i;
+				}
+				// check if is ai player
+				else if (playersList[i].equalsIgnoreCase("ai_"+usernameInput)){
+					index = i;
+					isAIPlayer = true;
 				}	
 			}
 		}
@@ -291,12 +297,18 @@ public class Nimsys {
 		return userExist;
 	}
 
+	// is AI player indicator
+	private static boolean isAIPlayer(){
+		return isAIPlayer;
+	}
+
 	// add ai player function
 	private static void addAiPlayer(){
-		// mark in username as ai
-		username = "ai_" + username;
 		// player not exist
 		if (indexOfUsername == -1){
+			// mark in username as ai
+			username = "ai_" + username;
+			// save to playerList
 			playersList[playerAmount] = username;
 			playersList[playerAmount + 1] = variables + ",0 games,0 wins";
 			playerAmount = playerAmount + 2;
@@ -555,6 +567,16 @@ public class Nimsys {
 		String[] gameVariables = variables.split(",");
 		// user exist
 		if (userExist(gameVariables[2]) && userExist(gameVariables[3])){
+			// check if player2 is ai player
+			if (isAIPlayer()){
+				gameVariables[3] = "ai_" + gameVariables[3];
+			}
+			// switch to player1 and check ai			
+			userExist(gameVariables[2]);
+			if (isAIPlayer()){
+				gameVariables[2] = "ai_" + gameVariables[2];
+			}
+
 			newGame.game(gameVariables[0], gameVariables[1], gameVariables[2], gameVariables[3]);
 		// user not exist
 		}else{

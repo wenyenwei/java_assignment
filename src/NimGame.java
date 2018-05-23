@@ -169,19 +169,14 @@ public class NimGame {
 			}
 		}else if (currentPlayer == player2) {
 			if (player2AI){
-				indicator = true
+				indicator = true;
 			}
 		}
 		return indicator;
-	}	
+	}
 
-	// switch player action
-    private static void switchPlayer() {
-    	// if currentPlayer is AIPlayer, call NimAIPlayer
-    	if (checkAI(currentPlayer)){
-    		// call NimAIPlayer
-    	}
-
+	// player enter stone amount	
+	private static void enterStoneAmount(){
 	    NimPlayer checkRemoveAmount = new NimPlayer();
 	    int removeStoneAmount = checkRemoveAmount.removeStone(currentPlayer);
 	    // check move validity
@@ -190,7 +185,19 @@ public class NimGame {
 	    } catch(moveException e) {
 	    	System.out.println(e.getMessage());
             switchPlayer();
-	    }
+	    }		
+	}
+
+	// switch player action
+    private static void switchPlayer() {
+    	// if currentPlayer is AIPlayer, call NimAIPlayer
+    	if (checkAI(currentPlayer)){
+    		// call NimAIPlayer that returns a remove stone amount
+    		NimAIPlayer aiPlayer = new NimAIPlayer();
+    		aiPlayer.NimAIPlayer();
+    	}else{
+    		enterStoneAmount();
+    	}
 	    stoneReducer(removeStoneAmount);
         checkWin();
     }
