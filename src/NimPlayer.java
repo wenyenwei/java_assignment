@@ -5,7 +5,7 @@
    Lecturer: Prof. Rui Zhang
    Semester 1, 2018
    Copyright The University of Melbourne 2018
-   Project B
+   Project C
    Wenyen Wei, username: wenyenw, studentID: 949624
 */
 import java.util.Scanner;
