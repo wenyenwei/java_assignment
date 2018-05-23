@@ -88,7 +88,7 @@ public class Nimsys {
 	
 	// action validity
 	private static void checkActionValidity(String action) throws ActionException{
-	    if (!action.equalsIgnoreCase("addPlayer") && !action.equalsIgnoreCase("editplayer") && !action.equalsIgnoreCase("removeplayer") && !action.equalsIgnoreCase("displayplayer") && !action.equalsIgnoreCase("resetstats") && !action.equalsIgnoreCase("rankings") && !action.equalsIgnoreCase("startgame") && !action.equalsIgnoreCase("exit")){
+	    if (!action.equalsIgnoreCase("addplayer") && !action.equalsIgnoreCase("addaiplayer") && !action.equalsIgnoreCase("editplayer") && !action.equalsIgnoreCase("removeplayer") && !action.equalsIgnoreCase("displayplayer") && !action.equalsIgnoreCase("resetstats") && !action.equalsIgnoreCase("rankings") && !action.equalsIgnoreCase("startgame") && !action.equalsIgnoreCase("exit")){
 	        String msg = "‘"+action+"’ is not a valid command.";
 	        throw new ActionException(msg);
 	    }
@@ -275,6 +275,7 @@ public class Nimsys {
 			if(playersList[i] != null){
 				if (playersList[i].equalsIgnoreCase(usernameInput)){
 					index = i;
+					isAIPlayer = false;
 				}
 				// check if is ai player
 				else if (playersList[i].equalsIgnoreCase("ai_"+usernameInput)){
@@ -493,42 +494,10 @@ public class Nimsys {
 		        	}
 		        }
 		    }
-	    }		
-
-		//if asc
-		if (order.equalsIgnoreCase("asc")){
-			// selection sort
-			for(int i = 0; i < varsList.length - 1; i++){
-		        for(int j = i + 1;j < varsList.length; j++){
-		        	if (varsList[i] != null && varsList[j] != null){
-
-		        		// count percentage and avoid divide 0
-		        		int perc_i, perc_j;
-			        	if (Integer.parseInt(varsList[i].split(",")[3].split(" ")[0]) != 0){
-			        		perc_i = Integer.parseInt(varsList[i].split(",")[4].split(" ")[0]) / Integer.parseInt(varsList[i].split(",")[3].split(" ")[0]);
-			        	}else{
-			        		perc_i = 0;
-			        	}
-
-			        	if (Integer.parseInt(varsList[j].split(",")[3].split(" ")[0]) != 0){
-			        		perc_j = Integer.parseInt(varsList[j].split(",")[4].split(" ")[0]) / Integer.parseInt(varsList[j].split(",")[3].split(" ")[0]);
-			        	}else{
-			        		perc_j = 0;
-			        	}
-
-			        	// selection sort
-			            if(perc_i > perc_j){
-			                String temp = varsList[i];
-			                varsList[i] = varsList[j];
-			                varsList[j] = temp;
-			            }	        		
-		        	}
-		        }
-		    }			
-		}
+	    }
 
 		// if desc
-		else if (order.equalsIgnoreCase("desc")){
+		if (order.equalsIgnoreCase("desc")){
 			// selection sort
 			for(int i = varsList.length - 1; i >= 0; i--){
 		        for(int j = i - 1;j >= 0; j--){

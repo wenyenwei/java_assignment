@@ -31,16 +31,19 @@ public class NimGame {
 		
 
 		// indicate if players are ai players
-		if (player1.substring(0,3) == "ai"){
-			player1AI = true;
-		}else{
-			player1AI = false;
+		if (player1.length() > 3){
+			if (player1.substring(0,3).equalsIgnoreCase("ai_")){
+				player1AI = true;
+			}else{
+				player1AI = false;
+			}			
 		}
-
-		if (player2.substring(0,3) == "ai"){
-			player2AI = true;
-		}else{
-			player2AI = false;
+		if (player2.length() > 3){
+			if (player2.substring(0,3).equalsIgnoreCase("ai_")){
+				player2AI = true;
+			}else{
+				player2AI = false;
+			}		
 		}
 
 		// init vars
@@ -175,11 +178,8 @@ public class NimGame {
 		return indicator;
 	}
 
-	// player enter stone amount	
-	private static void enterStoneAmount(){
-	    NimPlayer checkRemoveAmount = new NimPlayer();
-	    int removeStoneAmount = checkRemoveAmount.removeStone(currentPlayer);
-	    // check move validity
+	// check move validity	
+	private static void checkStoneAmount(int removeStoneAmount){
 	    try {
 	    	checkStoneNumValidity(removeStoneAmount);
 	    } catch(moveException e) {
@@ -190,14 +190,19 @@ public class NimGame {
 
 	// switch player action
     private static void switchPlayer() {
+    	int removeStoneAmount;
     	// if currentPlayer is AIPlayer, call NimAIPlayer
     	if (checkAI(currentPlayer)){
-    		// call NimAIPlayer that returns a remove stone amount
+    		// call NimAIPlayer to return a remove stone amount
     		NimAIPlayer aiPlayer = new NimAIPlayer();
-    		aiPlayer.NimAIPlayer();
-    	}else{
-    		enterStoneAmount();
+    		removeStoneAmount = aiPlayer.removeStone(currentPlayer, stoneUpperBound);
     	}
+    	// if currentlyPlayer is human player, call NimPlayer
+    	else{
+    		NimPlayer humanPlayer = new NimPlayer();
+	    	removeStoneAmount = humanPlayer.removeStone(currentPlayer);	
+    	}
+    	checkStoneAmount(removeStoneAmount);
 	    stoneReducer(removeStoneAmount);
         checkWin();
     }

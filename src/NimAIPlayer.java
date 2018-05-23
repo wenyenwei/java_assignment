@@ -8,12 +8,26 @@
    Project C
    Wenyen Wei, username: wenyenw, studentID: 949624
 */
-public class NimAIPlayer implements Testable extends NimGame{
+import java.util.concurrent.ThreadLocalRandom;
+
+public class NimAIPlayer extends NimPlayer{
 	// you may further extend a class or implement an interface
 	// to accomplish the tasks.	
-	public void NimAIPlayer() {
-		enterStoneAmount();		
+
+	public int NimAIPlayer(int stoneUpperBound) {
+		//return a valid stone amount randomly generated
+		int randomNum = ThreadLocalRandom.current().nextInt(1, stoneUpperBound + 1);
+		return randomNum;
 	}
+
+    // remove stone method
+    public int removeStone(String currentPlayer, int stoneUpperBound){
+        Nimsys nameList  = new Nimsys();
+        String playerName = nameList.playerList(currentPlayer).split(",")[1];
+        System.out.printf("%s's turn - remove how many?%n", playerName);
+        System.out.println();
+        return NimAIPlayer(stoneUpperBound);
+    }
 
 	public String advancedMove(boolean[] available, String lastMove) {
 		// the implementation of the victory
