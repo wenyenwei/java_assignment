@@ -443,7 +443,7 @@ public class Nimsys {
 
 		// processing user game data
 		for (int i = 0; i < 10; i++){
-			if (varList[i] != null){
+			if (varList[i] != null && !varList[i].equalsIgnoreCase("null")){
 				String[] variable = varList[i].split(",");
 				int gameAmount = Integer.parseInt(variable[3].split(" ")[0]);
 				int percentage;
@@ -501,8 +501,7 @@ public class Nimsys {
 			// selection sort
 			for(int i = varsList.length - 1; i >= 0; i--){
 		        for(int j = i - 1;j >= 0; j--){
-		        	if (varsList[i] != null && varsList[j] != null){
-
+		        	if (varsList[i] != null && !varsList[i].equalsIgnoreCase("null") && varsList[j] != null && !varsList[j].equalsIgnoreCase("null") ){
 		        		// count percentage and avoid divide 0
 		        		int perc_i, perc_j;
 			        	if (Integer.parseInt(varsList[i].split(",")[3].split(" ")[0]) != 0){
