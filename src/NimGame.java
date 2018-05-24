@@ -158,7 +158,7 @@ public class NimGame {
 	// move validity
 	private static void checkStoneNumValidity(int removeStoneAmount) throws moveException{
 	    if (removeStoneAmount > stoneUpperBound || removeStoneAmount < 1){
-	    	String msg = "Invalid move. You must remove between 1 and "+removeStoneAmount+" stones";
+	    	String msg = "Invalid move. You must remove between 1 and "+stoneUpperBound+" stones";
 	        throw new moveException(msg);
 	    }
 	}
@@ -195,7 +195,7 @@ public class NimGame {
     	if (checkAI(currentPlayer)){
     		// call NimAIPlayer to return a remove stone amount
     		NimAIPlayer aiPlayer = new NimAIPlayer();
-    		removeStoneAmount = aiPlayer.removeStone(currentPlayer, stoneUpperBound);
+    		removeStoneAmount = aiPlayer.removeStone(currentPlayer, stoneUpperBound, currentStoneAmount, initStoneAmount);
     	}
     	// if currentlyPlayer is human player, call NimPlayer
     	else{
