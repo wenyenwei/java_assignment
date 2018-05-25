@@ -89,7 +89,7 @@ public class Nimsys {
 	// action validity
 	private static void checkActionValidity(String action) throws ActionException{
 	    if (!action.equalsIgnoreCase("addplayer") && !action.equalsIgnoreCase("addaiplayer") && !action.equalsIgnoreCase("editplayer") && !action.equalsIgnoreCase("removeplayer") && !action.equalsIgnoreCase("displayplayer") && !action.equalsIgnoreCase("resetstats") && !action.equalsIgnoreCase("rankings") && !action.equalsIgnoreCase("startgame") && !action.equalsIgnoreCase("exit")){
-	        String msg = "‘"+action+"’ is not a valid command.";
+	        String msg = "\'"+action+"\' is not a valid command.";
 	        throw new ActionException(msg);
 	    }
 	}

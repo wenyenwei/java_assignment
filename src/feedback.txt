@@ -1,6 +1,6 @@
 ============================================
 vis/result.rtx
-12:58:05_Monday_30_April_2018
+14:51:32_Friday_25_May_2018
 ============================================
 Feedback:
 	Your program ("Nimsys.java") has been submitted successfully.
@@ -11,22 +11,68 @@ Here is a simple test case, and the results:
 ============================================
 Test for input file: in1
 Expected results:							Your results:
-Welcome to Nim								Welcome to Nim
-								     |	 
-$								     |	$ 
-$								     |	$ 
-$								     |	$ 
-$								     |	$ 
-$								     |	$ 
-$george,George,Washington,0 games,0 wins				$george,George,Washington,0 games,0 wins
-jadams,John,Adams,0 games,0 wins					jadams,John,Adams,0 games,0 wins
-jmadison,James,Madison,0 games,0 wins					jmadison,James,Madison,0 games,0 wins
-jmonroe,James,Monroe,0 games,0 wins					jmonroe,James,Monroe,0 games,0 wins
-tom,Thomas,Jefferson,0 games,0 wins					tom,Thomas,Jefferson,0 games,0 wins
-								     |	 
-$jmadison,James,Madison,0 games,0 wins					$jmadison,James,Madison,0 games,0 wins
-								     |	 
-$									$
+Welcome to Nim							     |	players.dat (No such file or directory)
+
+$Are you sure you want to remove all players? (y/n)		     <
+								     <
+$								     <
+$								     <
+$								     <
+$								     <
+$								     <
+Initial stone count: 1						     <
+Maximum stone removal: 1					     <
+Player 1: George Washington					     <
+Player 2: John Adams						     <
+								     <
+1 stones left: *						     <
+George's turn - remove how many?				     <
+								     <
+Game Over							     <
+John Adams wins!						     <
+								     <
+$								     <
+Initial stone count: 1						     <
+Maximum stone removal: 1					     <
+Player 1: George Washington					     <
+Player 2: John Adams						     <
+								     <
+1 stones left: *						     <
+George's turn - remove how many?				     <
+								     <
+Game Over							     <
+John Adams wins!						     <
+								     <
+$								     <
+Initial stone count: 1						     <
+Maximum stone removal: 1					     <
+Player 1: John Adams						     <
+Player 2: Thomas Jefferson					     <
+								     <
+1 stones left: *						     <
+John's turn - remove how many?					     <
+								     <
+Game Over							     <
+Thomas Jefferson wins!						     <
+								     <
+$								     <
+Initial stone count: 1						     <
+Maximum stone removal: 1					     <
+Player 1: Thomas Jefferson					     <
+Player 2: James Madison						     <
+								     <
+1 stones left: *						     <
+Thomas's turn - remove how many?				     <
+								     <
+Game Over							     <
+James Madison wins!						     <
+								     <
+$100% | 01 games | James Madison				     <
+67%  | 03 games | John Adams					     <
+50%  | 02 games | Thomas Jefferson				     <
+0%   | 02 games | George Washington				     <
+								     <
+$								     <
 
 Oops, your results seem to be INCORRECT :-(
 ============================================
@@ -34,13 +80,16 @@ Test for input file: in2
 Expected results:							Your results:
 Welcome to Nim								Welcome to Nim
 								     |	 
-$								     |	$ 
-$The player already exists.						$The player already exists.
-								     |	 
-$								     |	$ 
-$gbush,George,Bush,0 games,0 wins					$gbush,George,Bush,0 games,0 wins
-george,George,Washington,0 games,0 wins					george,George,Washington,0 games,0 wins
-								     |	 
+$george,George,Washington,2 games,0 wins			     |	$ 
+jadams,John,Adams,3 games,2 wins				     |	$ 
+jmadison,James,Madison,1 games,1 wins				     <
+tom,Thomas,Jefferson,2 games,1 wins				     <
+								     <
+$100% | 01 games | James Madison				     <
+67%  | 03 games | John Adams					     <
+50%  | 02 games | Thomas Jefferson				     <
+0%   | 02 games | George Washington				     <
+								     <
 $									$
 
 Oops, your results seem to be INCORRECT :-(
@@ -49,84 +98,17 @@ Test for input file: in3
 Expected results:							Your results:
 Welcome to Nim								Welcome to Nim
 								     |	 
-$								     |	$ 
-$								     |	$ 
-$								     |	$ 
-$george,George,Washington,0 games,0 wins				$george,George,Washington,0 games,0 wins
-jadams,John,Adams,0 games,0 wins					jadams,John,Adams,0 games,0 wins
-tom,Thomas,Jefferson,0 games,0 wins					tom,Thomas,Jefferson,0 games,0 wins
+$'createplayer' is not a valid command.					$'createplayer' is not a valid command.
 								     |	 
-$The player does not exist.						$The player does not exist.
-								     |	 
-$								     |	$ 
-$george,George,Washington,0 games,0 wins				$george,George,Washington,0 games,0 wins
-jadams,John,Adams,0 games,0 wins					jadams,John,Adams,0 games,0 wins
-								     |	 
-$Are you sure you want to remove all players? (y/n)			$Are you sure you want to remove all players? (y/n)
+$Incorrect number of arguments supplied to command.			$Incorrect number of arguments supplied to command.
 								     |	 
 $								     |	$ 
 $									$
 
 Oops, your results seem to be INCORRECT :-(
 ============================================
-Test for input file: in4
-Expected results:							Your results:
-Welcome to Nim								Welcome to Nim
-								     |	 
-$								     |	$ 
-$jcarter,Jimmy,Carter,0 games,0 wins					$jcarter,Jimmy,Carter,0 games,0 wins
-								     |	 
-$The player does not exist.						$The player does not exist.
-								     |	 
-$								     |	$ 
-$jcarter,James,Carter,0 games,0 wins					$jcarter,James,Carter,0 games,0 wins
-								     |	 
-$								     |	$ 
-$								     |	$ 
-$								     |	$ 
-$george,George,Washington,0 games,0 wins				$george,George,Washington,0 games,0 wins
-jadams,John,Adams,0 games,0 wins					jadams,John,Adams,0 games,0 wins
-								     |	 
-$									$
-Initial stone count: 10							Initial stone count: 10
-Maximum stone removal: 3						Maximum stone removal: 3
-Player 1: George Washington						Player 1: George Washington
-Player 2: John Adams							Player 2: John Adams
-
-10 stones left: * * * * * * * * * *					10 stones left: * * * * * * * * * *
-George's turn - remove how many?					George's turn - remove how many?
-
-8 stones left: * * * * * * * *						8 stones left: * * * * * * * *
-John's turn - remove how many?						John's turn - remove how many?
-
-6 stones left: * * * * * *						6 stones left: * * * * * *
-George's turn - remove how many?					George's turn - remove how many?
-
-4 stones left: * * * *							4 stones left: * * * *
-John's turn - remove how many?						John's turn - remove how many?
-
-3 stones left: * * *							3 stones left: * * *
-George's turn - remove how many?					George's turn - remove how many?
-
-2 stones left: * *							2 stones left: * *
-John's turn - remove how many?						John's turn - remove how many?
-
-1 stones left: *							1 stones left: *
-George's turn - remove how many?					George's turn - remove how many?
-
-Game Over								Game Over
-John Adams wins!							John Adams wins!
-								     |	 
-$100% | 01 games | John Adams					     |	$ 
-0%   | 01 games | George Washington				     |	$100 %| 01 games | John Adams
-								     |	0   %| 01 games | George Washington
-								     >	 
-$									$
-
-Oops, your results seem to be INCORRECT :-(
-============================================
-src/NimPlayer.java
-12:57:58_Monday_30_April_2018
+src/NimAIPlayer.java
+14:51:04_Friday_25_May_2018
 ============================================
 /*
    The University of Melbourne
@@ -135,7 +117,89 @@ src/NimPlayer.java
    Lecturer: Prof. Rui Zhang
    Semester 1, 2018
    Copyright The University of Melbourne 2018
-   Project B
+   Project C
+   Wenyen Wei, username: wenyenw, studentID: 949624
+*/
+import java.util.concurrent.ThreadLocalRandom;
+
+public class NimAIPlayer extends NimPlayer{
+	// you may further extend a class or implement an interface
+	// to accomplish the tasks.	
+
+	public int NimAIPlayer(int stoneUpperBound, int currentStoneAmount, int initStoneAmount) {
+
+    // return a winning guaranteed stone amount
+
+    // init return stone amount
+    int returnAmount = 0;
+
+
+    // get winNumbersList
+    int[] winNumber = winNumbers(initStoneAmount, stoneUpperBound);
+
+    // then identify the number to pick from the winNumber list above
+    for (int i = 0; i < winNumber.length - 2; i++){
+      // if match winning condition
+      if (winNumber[i] > 0){
+        if ((initStoneAmount - currentStoneAmount) < winNumber[i] && (initStoneAmount - currentStoneAmount) > winNumber[i+1]){
+          returnAmount = winNumber[i] - (initStoneAmount - currentStoneAmount);
+          // exit loop
+          i = winNumber.length - 2;
+        }
+        // if not match winning condition, return valid random number
+        else if ((initStoneAmount - currentStoneAmount) == winNumber[i]) {
+          returnAmount = ThreadLocalRandom.current().nextInt(1, stoneUpperBound + 1);
+          // exit loop
+          i = winNumber.length - 2;
+        }           
+      }
+    }
+
+    return returnAmount;
+
+	}
+
+  // make a list of number to reach to guarantee wins
+  private static int[] winNumbers(int initStoneAmount, int stoneUpperBound){
+    int[] winNumber = new int[20];
+    int remainStoneAmount = initStoneAmount-1;
+    int count = 0;
+    while (remainStoneAmount >= 0){
+      winNumber[count] = remainStoneAmount;
+      remainStoneAmount = remainStoneAmount - (stoneUpperBound + 1);
+      count++;
+    }
+    return winNumber;
+  }
+
+    // remove stone method
+    public int removeStone(String currentPlayer, int stoneUpperBound, int currentStoneAmount, int initStoneAmount){
+        Nimsys nameList  = new Nimsys();
+        String playerName = nameList.playerList(currentPlayer).split(",")[1];
+        System.out.printf("%s's turn - remove how many?%n", playerName);
+        System.out.println();
+        return NimAIPlayer(stoneUpperBound, currentStoneAmount, initStoneAmount);
+    }
+
+	public String advancedMove(boolean[] available, String lastMove) {
+		// the implementation of the victory
+		// guaranteed strategy designed by you
+		String move = "";
+		
+		return move;
+	}
+}============================================
+src/NimPlayer.java
+14:51:06_Friday_25_May_2018
+============================================
+/*
+   The University of Melbourne
+   School of Computing and Information Systems
+   COMP90041 Programming and Software Development
+   Lecturer: Prof. Rui Zhang
+   Semester 1, 2018
+   Copyright The University of Melbourne 2018
+   Project C
    Wenyen Wei, username: wenyenw, studentID: 949624
 */
 import java.util.Scanner;
@@ -178,7 +242,7 @@ public class NimPlayer {
 }
 ============================================
 src/Nimsys.java
-12:57:59_Monday_30_April_2018
+14:51:07_Friday_25_May_2018
 ============================================
 /*
    The University of Melbourne
@@ -187,10 +251,16 @@ src/Nimsys.java
    Lecturer: Prof. Rui Zhang
    Semester 1, 2018
    Copyright The University of Melbourne 2018
-   Project B
+   Project C
    Wenyen Wei, username: wenyenw, studentID: 949624
 */
 import java.util.Arrays;
+import java.io.PrintWriter;
+import java.io.FileOutputStream;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.util.Scanner;
+
 
 public class Nimsys {
 
@@ -200,18 +270,31 @@ public class Nimsys {
 	private static String[] playersList = new String[40];
 	private static int playerAmount = 0;
 	enum Actions {
-		addplayer, removeplayer, editplayer, resetstats, displayplayer, rankings, startgame, exit
+		addplayer, addaiplayer, removeplayer, editplayer, resetstats, displayplayer, rankings, startgame, exit
 	};
 	private static int indexOfUsername;
 	private static String variables;
 	private static String username;
+	private static boolean isAIPlayer = false;
 
 	// system start
 	public static void main (String[] args) {
+		// read file
+		Scanner inputStream = null;
+		try{
+			inputStream = new Scanner(new FileInputStream("players.dat"));
+		}
+		catch(FileNotFoundException e){
+			System.out.println(e.getMessage());
+			exitGame();
+		}
+		String playerListString = inputStream.nextLine();
+		// store file to player list
+		processingData(playerListString);
 
+		// start Nimsys
 		System.out.println("Welcome to Nim");
 		prompt();
-
 	}
 
 	// return player data according to username
@@ -219,6 +302,19 @@ public class Nimsys {
 		int index = getUserIndex(username);
 		return playersList[index+1];
 	}	
+
+	// processing data from file
+	private static void processingData(String list) {
+		playersList = list.substring(1,list.length()-1).split(", ");
+		int countPlayerAmount = 0;
+		for (int i = 0; i < 40; i++){
+			if (playersList[i] != null && !playersList[i].equalsIgnoreCase("null")){
+				countPlayerAmount++;
+			}
+		}
+
+		playerAmount = countPlayerAmount;
+	}
 
 	// command prompt
 	private static void prompt() {
@@ -229,19 +325,107 @@ public class Nimsys {
 		checkAction(action);
 	}
 
+	// action validity exception http://xanxusvervr.blogspot.com.au/2017/12/java.html
+	private static class ActionException extends Exception{
+	    public ActionException(String msg){
+	        super(msg);
+	    }
+	}
+	
+	// action validity
+	private static void checkActionValidity(String action) throws ActionException{
+	    if (!action.equalsIgnoreCase("addplayer") && !action.equalsIgnoreCase("addaiplayer") && !action.equalsIgnoreCase("editplayer") && !action.equalsIgnoreCase("removeplayer") && !action.equalsIgnoreCase("displayplayer") && !action.equalsIgnoreCase("resetstats") && !action.equalsIgnoreCase("rankings") && !action.equalsIgnoreCase("startgame") && !action.equalsIgnoreCase("exit")){
+	        String msg = "\'"+action+"\' is not a valid command.";
+	        throw new ActionException(msg);
+	    }
+	}
+
+	// action validity exception
+	private static class NumOfArgsException extends Exception{
+		public NumOfArgsException(String msg){
+	        super(msg);
+	    }
+	}
+	
+	// num of args validity
+	private static void checkNumberOfArgumentsValidity(String[] action, int correctNum) throws NumOfArgsException{
+	    if (action.length != correctNum){
+	    	String msg = "Incorrect number of arguments supplied to command.";
+	        throw new NumOfArgsException(msg);
+	    }
+	}
+
+	// num of args validity: 0 args 
+	private static void checkNumberOfArgumentsValidityZero(String action) throws NumOfArgsException{
+	    if (!action.equalsIgnoreCase("removeplayer") && !action.equalsIgnoreCase("resetstats") && !action.equalsIgnoreCase("displayplayer") && !action.equalsIgnoreCase("rankings") && !action.equalsIgnoreCase("exit")){
+	    	String msg = "Incorrect number of arguments supplied to command.";
+	        throw new NumOfArgsException(msg);
+	    }
+	}
+
+
+	// return number of required args according to action
+	private static int validNumberOfArgs(String action){
+		int numOfArgs = 0;
+		switch (action){
+			case "addplayer":
+				numOfArgs = 3;
+				break;
+			case "addaiplayer":
+				numOfArgs = 3;
+				break;
+			case "removeplayer":
+				numOfArgs = 1;
+				break;
+			case "editplayer":
+				numOfArgs = 3;
+				break;
+			case "resetstats":
+				numOfArgs = 1;
+				break;
+			case "displayplayer":
+				numOfArgs = 1;
+				break;
+			case "startgame":
+				numOfArgs = 4;
+				break;
+			case "rankings":
+				numOfArgs = 1;
+				break;
+		}
+		return numOfArgs;
+	}
+
 	// proceed input action
 	private static void checkAction(String action) {
-		// get action
+		// get action and check action validity
+		String[] action_split = action.split(" ");
 		if (action.length() > 0){
+			// check action validity
+			try{
+		        checkActionValidity(action_split[0].toLowerCase());
+		    }
+		    catch(ActionException e){
+		        System.out.println(e.getMessage());
+		        prompt();
+		    }
 			Actions function = null;
-			String[] action_split = action.split(" ");
 			function = Actions.valueOf(action_split[0].toLowerCase());
+
 			// set vars back to null
 			variables = null; 
 			username = null;
 
-			// get username index
+			// if has args, check number of args validity and get username index
 			if (action_split.length > 1){
+				// check num of args validity
+				try{
+			        checkNumberOfArgumentsValidity(action_split[1].split(","), validNumberOfArgs(action_split[0].toLowerCase()));
+			    }
+			    catch(NumOfArgsException e){
+			        System.out.println(e.getMessage());
+			        prompt();
+			    }				
 				// swap lname, fname for addplayer and editplayer
 				if (action_split[0].equalsIgnoreCase("addplayer") || action_split[0].equalsIgnoreCase("editplayer")){
 					variables = action_split[1].split(",")[0]+"," + action_split[1].split(",")[2] +","+ action_split[1].split(",")[1]; 
@@ -252,12 +436,26 @@ public class Nimsys {
 				username = variables.split(",")[0];
 				indexOfUsername = getUserIndex(username);		
 			}
+			// if no args check number of args validity
+			else if (action_split.length == 1){
+				try{
+					checkNumberOfArgumentsValidityZero(action_split[0].toLowerCase());
+				}catch(NumOfArgsException e){
+			        System.out.println(e.getMessage());
+			        prompt();					
+				}
+			}
 
 			switch(function){
 
 				// addplayer 
 				case addplayer:
 					addPlayer();
+					break;
+
+				// addaiplayer
+				case addaiplayer:
+					addAiPlayer();
 					break;
 
 				// removeplayer function
@@ -293,15 +491,31 @@ public class Nimsys {
 
 				// exit function
 				case exit:
-					System.out.println();
-					System.exit(0);
+					exitGame();
 					break;
 			}
+		
 		// Scanner no waiting problem, prevent blank input				
 		}else{
 			prompt();
 		}
 	}
+
+	// exit function
+	private static void exitGame(){
+		PrintWriter outputStreamName = null;
+		try{
+			outputStreamName = new PrintWriter(new FileOutputStream("players.dat", false));
+		}
+		catch(FileNotFoundException e){
+			System.out.println(e.getMessage());
+		}
+		outputStreamName.println(Arrays.toString(playersList));
+		outputStreamName.close();
+		System.out.println();
+		System.exit(0);
+	}
+
 
 	// get user index
 	private static int getUserIndex(String usernameInput){
@@ -310,6 +524,12 @@ public class Nimsys {
 			if(playersList[i] != null){
 				if (playersList[i].equalsIgnoreCase(usernameInput)){
 					index = i;
+					isAIPlayer = false;
+				}
+				// check if is ai player
+				else if (playersList[i].equalsIgnoreCase("ai_"+usernameInput)){
+					index = i;
+					isAIPlayer = true;
 				}	
 			}
 		}
@@ -325,6 +545,30 @@ public class Nimsys {
 			userExist =  true;
 		}
 		return userExist;
+	}
+
+	// is AI player indicator
+	private static boolean isAIPlayer(){
+		return isAIPlayer;
+	}
+
+	// add ai player function
+	private static void addAiPlayer(){
+		// player not exist
+		if (indexOfUsername == -1){
+			// mark in username as ai
+			username = "ai_" + username;
+			// save to playerList
+			playersList[playerAmount] = username;
+			playersList[playerAmount + 1] = variables + ",0 games,0 wins";
+			playerAmount = playerAmount + 2;
+			prompt();
+		}
+		// player exist
+		else if (indexOfUsername >= 0){
+			System.out.println("The player already exists.");
+			prompt();
+		}
 	}
 
 	// add player function
@@ -417,10 +661,10 @@ public class Nimsys {
 		if (variables == null){
 			// getting sub list
 			String[] varsList = new String[20];
-			// sort player ajphabetically
+			// sort player alphabetically
 			varsList = sort("alphabet", playersList);
 			for (int i = 0; i < varsList.length; i++){
-				if (varsList[i] != null){
+				if (varsList[i] != null && !varsList[i].equalsIgnoreCase("null")){
 					System.out.println(varsList[i]);
 				}
 			}
@@ -439,20 +683,20 @@ public class Nimsys {
 	// rankings function
 	private static void rankings(){
 		//apply sorting
-		String[] varList = new String[20]; 
+		String[] varsList = new String[20]; 
+		String[] resListForAlpha = new String[10]; 
 
-		// list in desc order
-		if(variables == null || variables.equalsIgnoreCase("desc")) {
-			varList = sort("desc", playersList);
+		// first sort alphabetically, then sort accordance order
+		if (variables == null){
+			varsList = sort("desc", playersList);
+		}else{
+			varsList = sort(variables, playersList);
 		}
-		// list in asc order 
-		else if(variables.equalsIgnoreCase("asc")) {
-			varList = sort("asc", playersList);
-		}
+
 		// processing user game data
 		for (int i = 0; i < 10; i++){
-			if (varList[i] != null){
-				String[] variable = varList[i].split(",");
+			if (varsList[i] != null && !varsList[i].equalsIgnoreCase("null")){
+				String[] variable = varsList[i].split(",");
 				int gameAmount = Integer.parseInt(variable[3].split(" ")[0]);
 				int percentage;
 				if (gameAmount == 0){
@@ -479,9 +723,61 @@ public class Nimsys {
 		return gameAmountString;
 	}
 
+	// sorting in alphabetical order for rankings
+	private static String[] sortAlphabetically_rankings(String[] varsList){
+		String[] tieList = new String[10];
+		int count = 0;
+	    for(int i = 0; i < varsList.length - 1; i++){
+	        for(int j = i+1; j < varsList.length; j++){
+	        	if (varsList[i] != null && varsList[j] != null && !varsList[i].equalsIgnoreCase("null") && !varsList[j].equalsIgnoreCase("null")){
+		            // if ranking is a tie, sort by alphabetical order
+		            int firstElement = 0;
+		            int lastElement = 0;
+		            if (varsList[i].split(",")[0].equalsIgnoreCase(varsList[j].split(",")[0])){
+		            	tieList[i] = varsList[i];
+		            	// first tie element, record index
+		            	if (!varsList[i-1].split(",")[0].equalsIgnoreCase(varsList[i].split(",")[0])){
+		            		firstElement = i;
+		            	}
+		            	if (!varsList[j].split(",")[0].equalsIgnoreCase(varsList[j+1].split(",")[0])){
+		            		lastElement = j;
+		            		tieList[j] = varsList[j].split(",")[2];
+		            		// last tie element, sort alphabetically
+		            		sortAlphabetically(tieList);
+		            		// init tieList
+		            		tieList = new String[10];
+		            		// put them back to varsList
+		            		for (int c = firstElement; c < lastElement - 1; c++){
+		            			varsList[c] = tieList[c];
+		            		}		            		
+		            	}
+		            }
+	        	}
+	        }
+	    }
+	    return varsList;
+	}
+
+	// sorting in alphabetical order
+	private static String[] sortAlphabetically(String[] varsList){
+	    for(int i = 0; i < varsList.length - 1; i++){
+	        for(int j = i+1; j < varsList.length; j++){
+	        	if (varsList[i] != null && varsList[j] != null && !varsList[i].equalsIgnoreCase("null") && !varsList[j].equalsIgnoreCase("null")){
+		            if(varsList[i].split(",")[0].compareTo(varsList[j].split(",")[0]) >=0){
+		                String temp = varsList[i];
+		                varsList[i] = varsList[j];
+		                varsList[j] = temp;
+		            }
+	        	}
+	        }
+	    }
+	    return varsList;
+	}
+
 	// sorting ranking function
 	private static String[] sort(String order, String[] args){
-		// getting sub list
+		
+		// then get sub list
 		String[] varsList = new String[20];
 		int count = 0;
 		for (int i = 1; i < args.length - 1; i += 2){
@@ -489,38 +785,27 @@ public class Nimsys {
 			count ++;
 		}
 
+
 		// if alphabetically
 		if (order.equalsIgnoreCase("alphabet")){
-		    for(int i = 0; i < varsList.length - 1; i++){
-		        for(int j = i+1; j < varsList.length; j++){
-		        	if (varsList[i] != null && varsList[j] != null){
-			            if(varsList[i].split(",")[0].compareTo(varsList[j].split(",")[0]) >=0){
-			                String temp = varsList[i];
-			                varsList[i] = varsList[j];
-			                varsList[j] = temp;
-			            }
-		        	}
-		        }
-		    }
-	    }		
+			sortAlphabetically(varsList);
+	    }
 
 		//if asc
-		if (order.equalsIgnoreCase("asc")){
+		else if (order.equalsIgnoreCase("asc")){
 			// selection sort
 			for(int i = 0; i < varsList.length - 1; i++){
 		        for(int j = i + 1;j < varsList.length; j++){
-		        	if (varsList[i] != null && varsList[j] != null){
-
+		        	if (varsList[i] != null && varsList[j] != null && !varsList[i].equalsIgnoreCase("null") && !varsList[j].equalsIgnoreCase("null")){
 		        		// count percentage and avoid divide 0
 		        		int perc_i, perc_j;
-			        	if (Integer.parseInt(varsList[i].split(",")[3].split(" ")[0]) != 0){
-			        		perc_i = Integer.parseInt(varsList[i].split(",")[4].split(" ")[0]) / Integer.parseInt(varsList[i].split(",")[3].split(" ")[0]);
+			        	if (Integer.parseInt(varsList[i].split(",")[3].split(" ")[0]) > 0){
+			        		perc_i = 100 * Integer.parseInt(varsList[i].split(",")[4].split(" ")[0]) / Integer.parseInt(varsList[i].split(",")[3].split(" ")[0]);
 			        	}else{
 			        		perc_i = 0;
 			        	}
-
-			        	if (Integer.parseInt(varsList[j].split(",")[3].split(" ")[0]) != 0){
-			        		perc_j = Integer.parseInt(varsList[j].split(",")[4].split(" ")[0]) / Integer.parseInt(varsList[j].split(",")[3].split(" ")[0]);
+			        	if (Integer.parseInt(varsList[j].split(",")[3].split(" ")[0]) > 0){
+			        		perc_j = 100 * Integer.parseInt(varsList[j].split(",")[4].split(" ")[0]) / Integer.parseInt(varsList[j].split(",")[3].split(" ")[0]);
 			        	}else{
 			        		perc_j = 0;
 			        	}
@@ -536,23 +821,23 @@ public class Nimsys {
 		    }			
 		}
 
+
 		// if desc
 		else if (order.equalsIgnoreCase("desc")){
 			// selection sort
 			for(int i = varsList.length - 1; i >= 0; i--){
 		        for(int j = i - 1;j >= 0; j--){
-		        	if (varsList[i] != null && varsList[j] != null){
-
+		        	if (varsList[i] != null && !varsList[i].equalsIgnoreCase("null") && varsList[j] != null && !varsList[j].equalsIgnoreCase("null") ){
 		        		// count percentage and avoid divide 0
 		        		int perc_i, perc_j;
 			        	if (Integer.parseInt(varsList[i].split(",")[3].split(" ")[0]) != 0){
-			        		perc_i = Integer.parseInt(varsList[i].split(",")[4].split(" ")[0]) / Integer.parseInt(varsList[i].split(",")[3].split(" ")[0]);
+			        		perc_i = 100 * Integer.parseInt(varsList[i].split(",")[4].split(" ")[0]) / Integer.parseInt(varsList[i].split(",")[3].split(" ")[0]);
 			        	}else{
 			        		perc_i = 0;
 			        	}
 
 			        	if (Integer.parseInt(varsList[j].split(",")[3].split(" ")[0]) != 0){
-			        		perc_j = Integer.parseInt(varsList[j].split(",")[4].split(" ")[0]) / Integer.parseInt(varsList[j].split(",")[3].split(" ")[0]);
+			        		perc_j = 100 * Integer.parseInt(varsList[j].split(",")[4].split(" ")[0]) / Integer.parseInt(varsList[j].split(",")[3].split(" ")[0]);
 			        	}else{
 			        		perc_j = 0;
 			        	}
@@ -576,6 +861,16 @@ public class Nimsys {
 		String[] gameVariables = variables.split(",");
 		// user exist
 		if (userExist(gameVariables[2]) && userExist(gameVariables[3])){
+			// check if player2 is ai player
+			if (isAIPlayer()){
+				gameVariables[3] = "ai_" + gameVariables[3];
+			}
+			// switch to player1 and check ai			
+			userExist(gameVariables[2]);
+			if (isAIPlayer()){
+				gameVariables[2] = "ai_" + gameVariables[2];
+			}
+
 			newGame.game(gameVariables[0], gameVariables[1], gameVariables[2], gameVariables[3]);
 		// user not exist
 		}else{
@@ -613,7 +908,7 @@ public class Nimsys {
 }
 ============================================
 src/NimGame.java
-12:57:58_Monday_30_April_2018
+14:51:05_Friday_25_May_2018
 ============================================
 /*
    The University of Melbourne
@@ -622,7 +917,7 @@ src/NimGame.java
    Lecturer: Prof. Rui Zhang
    Semester 1, 2018
    Copyright The University of Melbourne 2018
-   Project B
+   Project C
    Wenyen Wei, username: wenyenw, studentID: 949624
 */
 public class NimGame {
@@ -631,6 +926,7 @@ public class NimGame {
 	private static int currentStoneAmount, removeStoneAmount, stoneUpperBound, initStoneAmount, winnerCount;
 	private static String currentPlayer, player1, player2, player1Name, player2Name;
 	private static String[] winner = new String[40];
+	private static boolean player1AI, player2AI;
 
 	// new game start
 	public static void game(String initStone, String maxStone, String playerOne, String playerTwo) {
@@ -645,6 +941,23 @@ public class NimGame {
 		player1Name = nameList.playerList(player1).split(",")[1]+" "+nameList.playerList(player1).split(",")[2];
 		player2Name = nameList.playerList(player2).split(",")[1]+" "+nameList.playerList(player2).split(",")[2];
 		
+
+		// indicate if players are ai players
+		if (player1.length() > 3){
+			if (player1.substring(0,3).equalsIgnoreCase("ai_")){
+				player1AI = true;
+			}else{
+				player1AI = false;
+			}			
+		}
+		if (player2.length() > 3){
+			if (player2.substring(0,3).equalsIgnoreCase("ai_")){
+				player2AI = true;
+			}else{
+				player2AI = false;
+			}		
+		}
+
 		// init vars
 		initStoneAmount = Integer.parseInt(initStone);
 		for (int i = 0; i < winner.length; i++){
@@ -747,25 +1060,62 @@ public class NimGame {
 		}
 	}
 
+	// move validity exception http://xanxusvervr.blogspot.com.au/2017/12/java.html
+	private static class moveException extends Exception{
+	    public moveException(String msg){
+	        super(msg);
+	    }
+	}
+	
+	// move validity
+	private static void checkStoneNumValidity(int removeStoneAmount) throws moveException{
+	    if (removeStoneAmount > stoneUpperBound || removeStoneAmount < 1){
+	    	String msg = "Invalid move. You must remove between 1 and "+stoneUpperBound+" stones";
+	        throw new moveException(msg);
+	    }
+	}
+
+	// check if player is ai
+	private static boolean checkAI(String currentPlayer) {
+		boolean indicator = false;
+		if (currentPlayer == player1){
+			if (player1AI){
+				indicator = true;
+			}
+		}else if (currentPlayer == player2) {
+			if (player2AI){
+				indicator = true;
+			}
+		}
+		return indicator;
+	}
+
+	// check move validity	
+	private static void checkStoneAmount(int removeStoneAmount){
+	    try {
+	    	checkStoneNumValidity(removeStoneAmount);
+	    } catch(moveException e) {
+	    	System.out.println(e.getMessage());
+            switchPlayer();
+	    }		
+	}
+
 	// switch player action
     private static void switchPlayer() {
-
-	    NimPlayer checkRemoveAmount = new NimPlayer();
-	    int removeStoneAmount = checkRemoveAmount.removeStone(currentPlayer);
-
-	    // if entry over upperbound
-        if (removeStoneAmount > stoneUpperBound) {
-            System.out.printf("Amount upper bound is %d, please try again.%n", stoneUpperBound);
-            switchPlayer();
-        }
-        // if entry less than 1 
-        else if (removeStoneAmount < 1) {
-            System.out.printf("Amount has to be greater than zero, please try again.%n");
-            switchPlayer();        	
-        } 
-        else {
-            stoneReducer(removeStoneAmount);
-            checkWin();
-        }
+    	int removeStoneAmount;
+    	// if currentPlayer is AIPlayer, call NimAIPlayer
+    	if (checkAI(currentPlayer)){
+    		// call NimAIPlayer to return a remove stone amount
+    		NimAIPlayer aiPlayer = new NimAIPlayer();
+    		removeStoneAmount = aiPlayer.removeStone(currentPlayer, stoneUpperBound, currentStoneAmount, initStoneAmount);
+    	}
+    	// if currentlyPlayer is human player, call NimPlayer
+    	else{
+    		NimPlayer humanPlayer = new NimPlayer();
+	    	removeStoneAmount = humanPlayer.removeStone(currentPlayer);	
+    	}
+    	checkStoneAmount(removeStoneAmount);
+	    stoneReducer(removeStoneAmount);
+        checkWin();
     }
 }
