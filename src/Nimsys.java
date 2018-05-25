@@ -437,18 +437,16 @@ public class Nimsys {
 	// rankings function
 	private static void rankings(){
 		//apply sorting
-		String[] varList = new String[20]; 
+		String[] varsList = new String[20]; 
+		String[] resListForAlpha = new String[10]; 
 
-		// list in asc order
-		if(variables == null || variables.equalsIgnoreCase("desc") || variables.equalsIgnoreCase("asc")) {
-			// first sort alphabetically, then sort asc order
-			varList = sort("asc", sort("alphabet", playersList));
-		}
+		// first sort alphabetically, then sort accordance order
+		varsList = sort(variables, playersList);
 
 		// processing user game data
 		for (int i = 0; i < 10; i++){
-			if (varList[i] != null && !varList[i].equalsIgnoreCase("null")){
-				String[] variable = varList[i].split(",");
+			if (varsList[i] != null && !varsList[i].equalsIgnoreCase("null")){
+				String[] variable = varsList[i].split(",");
 				int gameAmount = Integer.parseInt(variable[3].split(" ")[0]);
 				int percentage;
 				if (gameAmount == 0){
@@ -456,10 +454,19 @@ public class Nimsys {
 				}else{
 					percentage = 100 * Integer.parseInt(variable[4].split(" ")[0]) / gameAmount;
 				}
-				String result = "%-4d%%| %s games | %s %s%n";
-				System.out.printf(result, percentage, statFormatter(gameAmount), variable[1], variable[2]);	
+				resListForAlpha[i] = percentage+","+statFormatter(gameAmount)+","+variable[1]+","+variable[2];
+				
 			}
 		}
+		sortAlphabetically_rankings(resListForAlpha);
+		for (int i = 0; i < 10; i++){
+			if (resListForAlpha[i] != null && !resListForAlpha[i].equalsIgnoreCase("null")){
+				String[] res = resListForAlpha[i].split(",");
+				String result = "%-4s%%| %s games | %s %s%n";
+				System.out.printf(result, res[0], res[1], res[2], res[3]);					
+			}
+		}
+
 		prompt();
 	}
 
@@ -475,6 +482,57 @@ public class Nimsys {
 		return gameAmountString;
 	}
 
+	// sorting in alphabetical order for rankings
+	private static String[] sortAlphabetically_rankings(String[] varsList){
+		String[] tieList = new String[10];
+		int count = 0;
+	    for(int i = 0; i < varsList.length - 1; i++){
+	        for(int j = i+1; j < varsList.length; j++){
+	        	if (varsList[i] != null && varsList[j] != null && !varsList[i].equalsIgnoreCase("null") && !varsList[j].equalsIgnoreCase("null")){
+		            // if ranking is a tie, sort by alphabetical order
+		            int firstElement = 0;
+		            int lastElement = 0;
+		            if (varsList[i].split(",")[0].equalsIgnoreCase(varsList[j].split(",")[0])){
+		            	tieList[i] = varsList[i];
+		            	// first tie element, record index
+		            	if (!varsList[i-1].split(",")[0].equalsIgnoreCase(varsList[i].split(",")[0])){
+		            		firstElement = i;
+		            	}
+		            	if (!varsList[j].split(",")[0].equalsIgnoreCase(varsList[j+1].split(",")[0])){
+		            		lastElement = j;
+		            		tieList[j] = varsList[j].split(",")[2];
+		            		// last tie element, sort alphabetically
+		            		sortAlphabetically(tieList);
+		            		// init tieList
+		            		tieList = new String[10];
+		            		// put them back to varsList
+		            		for (int c = firstElement; c < lastElement - 1; c++){
+		            			varsList[c] = tieList[c];
+		            		}		            		
+		            	}
+		            }
+	        	}
+	        }
+	    }
+	    return varsList;
+	}
+
+	// sorting in alphabetical order
+	private static String[] sortAlphabetically(String[] varsList){
+	    for(int i = 0; i < varsList.length - 1; i++){
+	        for(int j = i+1; j < varsList.length; j++){
+	        	if (varsList[i] != null && varsList[j] != null && !varsList[i].equalsIgnoreCase("null") && !varsList[j].equalsIgnoreCase("null")){
+		            if(varsList[i].split(",")[0].compareTo(varsList[j].split(",")[0]) >=0){
+		                String temp = varsList[i];
+		                varsList[i] = varsList[j];
+		                varsList[j] = temp;
+		            }
+	        	}
+	        }
+	    }
+	    return varsList;
+	}
+
 	// sorting ranking function
 	private static String[] sort(String order, String[] args){
 		
@@ -486,51 +544,33 @@ public class Nimsys {
 			count ++;
 		}
 
+
 		// if alphabetically
 		if (order.equalsIgnoreCase("alphabet")){
-			System.out.println("sorting alpha");
-		    for(int i = 0; i < varsList.length - 1; i++){
-		        for(int j = i+1; j < varsList.length; j++){
-		        	if (varsList[i] != null && varsList[j] != null && !varsList[i].equalsIgnoreCase("null") && !varsList[j].equalsIgnoreCase("null")){
-			            if(varsList[i].split(",")[0].compareTo(varsList[j].split(",")[0]) >=0){
-			                String temp = varsList[i];
-			                varsList[i] = varsList[j];
-			                varsList[j] = temp;
-			            }
-		        	}
-		        }
-		    }
+			sortAlphabetically(varsList);
 	    }
 
 		//if asc
 		else if (order.equalsIgnoreCase("asc")){
-			System.out.println("sorting asc");
-			// sort rankings to asc order
 			// selection sort
 			for(int i = 0; i < varsList.length - 1; i++){
 		        for(int j = i + 1;j < varsList.length; j++){
-		        	System.out.println(varsList[i]);
-		        	System.out.println(varsList[j]);
 		        	if (varsList[i] != null && varsList[j] != null && !varsList[i].equalsIgnoreCase("null") && !varsList[j].equalsIgnoreCase("null")){
 		        		// count percentage and avoid divide 0
 		        		int perc_i, perc_j;
+		        		System.out.println(varsList[i]);
 			        	if (Integer.parseInt(varsList[i].split(",")[3].split(" ")[0]) > 0){
-			        		perc_i = Integer.parseInt(varsList[i].split(",")[4].split(" ")[0]) / Integer.parseInt(varsList[i].split(",")[3].split(" ")[0]);
+			        		perc_i = 100 * Integer.parseInt(varsList[i].split(",")[4].split(" ")[0]) / Integer.parseInt(varsList[i].split(",")[3].split(" ")[0]);
 			        	}else{
 			        		perc_i = 0;
 			        	}
-
 			        	if (Integer.parseInt(varsList[j].split(",")[3].split(" ")[0]) > 0){
-			        		perc_j = Integer.parseInt(varsList[j].split(",")[4].split(" ")[0]) / Integer.parseInt(varsList[j].split(",")[3].split(" ")[0]);
+			        		perc_j = 100 * Integer.parseInt(varsList[j].split(",")[4].split(" ")[0]) / Integer.parseInt(varsList[j].split(",")[3].split(" ")[0]);
 			        	}else{
 			        		perc_j = 0;
 			        	}
 
 			        	// selection sort
-			        	System.out.println(varsList[i]);
-			        	System.out.println(perc_i);
-						System.out.println(varsList[j]);
-			        	System.out.println(perc_j);
 			            if(perc_i > perc_j){
 			                String temp = varsList[i];
 			                varsList[i] = varsList[j];
@@ -551,13 +591,13 @@ public class Nimsys {
 		        		// count percentage and avoid divide 0
 		        		int perc_i, perc_j;
 			        	if (Integer.parseInt(varsList[i].split(",")[3].split(" ")[0]) != 0){
-			        		perc_i = Integer.parseInt(varsList[i].split(",")[4].split(" ")[0]) / Integer.parseInt(varsList[i].split(",")[3].split(" ")[0]);
+			        		perc_i = 100 * Integer.parseInt(varsList[i].split(",")[4].split(" ")[0]) / Integer.parseInt(varsList[i].split(",")[3].split(" ")[0]);
 			        	}else{
 			        		perc_i = 0;
 			        	}
 
 			        	if (Integer.parseInt(varsList[j].split(",")[3].split(" ")[0]) != 0){
-			        		perc_j = Integer.parseInt(varsList[j].split(",")[4].split(" ")[0]) / Integer.parseInt(varsList[j].split(",")[3].split(" ")[0]);
+			        		perc_j = 100 * Integer.parseInt(varsList[j].split(",")[4].split(" ")[0]) / Integer.parseInt(varsList[j].split(",")[3].split(" ")[0]);
 			        	}else{
 			        		perc_j = 0;
 			        	}
