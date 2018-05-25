@@ -36,7 +36,7 @@ public class Nimsys {
 		// read file
 		Scanner inputStream = null;
 		try{
-			inputStream = new Scanner(new FileInputStream("players.txt"));
+			inputStream = new Scanner(new FileInputStream("players.dat"));
 		}
 		catch(FileNotFoundException e){
 			System.out.println(e.getMessage());
@@ -259,7 +259,7 @@ public class Nimsys {
 	private static void exitGame(){
 		PrintWriter outputStreamName = null;
 		try{
-			outputStreamName = new PrintWriter(new FileOutputStream("players.txt", false));
+			outputStreamName = new PrintWriter(new FileOutputStream("players.dat", false));
 		}
 		catch(FileNotFoundException e){
 			System.out.println(e.getMessage());
