@@ -441,7 +441,11 @@ public class Nimsys {
 		String[] resListForAlpha = new String[10]; 
 
 		// first sort alphabetically, then sort accordance order
-		varsList = sort(variables, playersList);
+		if (variables == null){
+			varsList = sort("desc", playersList);
+		}else{
+			varsList = sort(variables, playersList);
+		}
 
 		// processing user game data
 		for (int i = 0; i < 10; i++){
@@ -454,19 +458,10 @@ public class Nimsys {
 				}else{
 					percentage = 100 * Integer.parseInt(variable[4].split(" ")[0]) / gameAmount;
 				}
-				resListForAlpha[i] = percentage+","+statFormatter(gameAmount)+","+variable[1]+","+variable[2];
-				
+				String result = "%-4d%%| %s games | %s %s%n";
+				System.out.printf(result, percentage, statFormatter(gameAmount), variable[1], variable[2]);	
 			}
 		}
-		sortAlphabetically_rankings(resListForAlpha);
-		for (int i = 0; i < 10; i++){
-			if (resListForAlpha[i] != null && !resListForAlpha[i].equalsIgnoreCase("null")){
-				String[] res = resListForAlpha[i].split(",");
-				String result = "%-4s%%| %s games | %s %s%n";
-				System.out.printf(result, res[0], res[1], res[2], res[3]);					
-			}
-		}
-
 		prompt();
 	}
 
@@ -558,7 +553,6 @@ public class Nimsys {
 		        	if (varsList[i] != null && varsList[j] != null && !varsList[i].equalsIgnoreCase("null") && !varsList[j].equalsIgnoreCase("null")){
 		        		// count percentage and avoid divide 0
 		        		int perc_i, perc_j;
-		        		System.out.println(varsList[i]);
 			        	if (Integer.parseInt(varsList[i].split(",")[3].split(" ")[0]) > 0){
 			        		perc_i = 100 * Integer.parseInt(varsList[i].split(",")[4].split(" ")[0]) / Integer.parseInt(varsList[i].split(",")[3].split(" ")[0]);
 			        	}else{
